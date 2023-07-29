@@ -13,6 +13,7 @@ import HomePage from '../HomePage/HomePage'
 
 export default function App() {
   const [posts, setPosts] = useState([])
+  
   const [page, setPage] = useState(null)
 
   // const getPosts = () => {

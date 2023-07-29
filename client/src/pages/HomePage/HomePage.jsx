@@ -13,6 +13,7 @@ export default function HomePage({ setPage }){
         <>
         <h3>Welcome to the main page</h3>
         <button name="index" onClick={handleClick}>Click here to see all articles</button>
+        <button name="postForm" onClick={handleClick}>Click here to add an article</button>
         </>
    
     )
