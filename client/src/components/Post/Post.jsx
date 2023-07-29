@@ -1,4 +1,6 @@
 
+import './Post.css'
+import '../../index.css'
 
 export default function Post({ posts }) {
     if (!Array.isArray(posts)) {
@@ -8,16 +10,21 @@ export default function Post({ posts }) {
 
     return (
         <>
+        <div className="homeDiv">
         <h1>Index Page</h1>
         { posts.map((p, idx) => (
 
-            <><h3>Name: {p.author}</h3>
-            <h3>Title: {p.title}</h3>
-            <h3>Content: {p.content}</h3>
-             <img src={p.img} /> 
-            <h2>{p.img}</h2>
+            <>
+            <div className="blogCard">
+                <h3>Name: {p.author}</h3>
+                <h3>Title: {p.title}</h3>
+                <h3>Content: {p.content}</h3>
+                <img className="img" src={p.img} /> 
+            </div>
+
             </>
     ))}
+    </div>
        </>
     )
 }

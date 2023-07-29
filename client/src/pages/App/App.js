@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import Post from '../../components/Post'
+import Post from '../../components/Post/Post'
 // import Add from './components/Add'
 // import Edit from './components/Edit'
 import PostForm from '../../components/PostForm'
