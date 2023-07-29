@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import Post from './components/Post'
-import Add from './components/Add'
-import Edit from './components/Edit'
-import PostForm from './components/PostForm'
+import Post from '../../components/Post'
+// import Add from './components/Add'
+// import Edit from './components/Edit'
+import PostForm from '../../components/PostForm'
 import { Routes, Route } from 'react-router-dom'
-import NavBar from './components/NavBar/NavBar'
+import NavBar from '../../components/NavBar/NavBar'
+import HomePage from '../HomePage/HomePage'
 
 
 
 
 export default function App() {
   const [posts, setPosts] = useState([])
+  const [page, setPage] = useState(null)
 
   // const getPosts = () => {
   //   axios.get('http://localhost:3000/posts')
@@ -60,25 +62,50 @@ export default function App() {
     getPosts()
   }, [])
 
-  return (
-    <>
-      <NavBar />
-      <h1>All Posts</h1>
-      <Routes>
-          <Route path="/" element={
-            <Post posts={posts}/>
-          }>
 
-      </Route>
+ 
+      if(page === null){
+        return (
+          <>
+          <h1>Home Page</h1>
+              <Routes>
+                <Route 
+                    path="/" 
+                    element={
+                      <HomePage setPage={setPage}/>
+                    }>
+
+                </Route>
+              </Routes>
+          </>
+        )
+      }
+
+      if(page === "index"){
+        return (
+            <>
+              <h1>All Posts</h1>
+              <Routes>
+                <Route 
+                    path="/" 
+                    element={
+                      <Post posts={posts}/>
+                    }>
+
+                </Route>
+              </Routes>
+            </>
+
+        )
+      }
+    
+      
 
          
          
-      </Routes>
+
 
       
       
 
-   
-    </>
-  );
 }
