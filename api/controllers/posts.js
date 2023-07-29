@@ -6,7 +6,8 @@ const Post = require('../models/post')
 module.exports = {
     index,
     create,
-    show
+    show,
+    deletePost
 }
 
 
@@ -29,6 +30,14 @@ async function show(req, res){
     }
 }
 
+async function deletePost(req, res){
+    try {
+        const deletePost = await Post.findById(req.params.id)
+        res.status(200).json(deletePost)
+    } catch(err){
+        console.log(err)
+    }
+}
 
 async function create(req, res){
     try {

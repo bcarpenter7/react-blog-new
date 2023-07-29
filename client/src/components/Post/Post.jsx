@@ -2,13 +2,18 @@
 import './Post.css'
 import '../../index.css'
 import { useState } from 'react'
+import PostDetail from '../PostDetail/PostDetail'
 
-export default function Post({ posts, currentArticle, setCurrentArticle}) {
+export default function Post({ posts, currentArticle, setCurrentArticle, handleDelete}) {
     // const [currentArticle, setCurrentArticle] = useState("64c3e10928aa2fe7e8476947")
-
-
     function handleChange(e){
         setCurrentArticle(e.target.name)
+    }
+
+    function deletePost(e){
+        if (window.confirm("Are you sure you want to delete this post?")) {
+            handleDelete(e.target.name);
+          }
     }
 
 
@@ -30,9 +35,9 @@ export default function Post({ posts, currentArticle, setCurrentArticle}) {
                     <h3>Content: {p.content}</h3>
                     <h3>{p._id}</h3>
                     <button name={p._id} onClick={handleChange}>Click to Read More</button>
+                    <button name={p._id} onClick={deletePost}>Click to delete</button>
                 </div>
                
-                
             </div>
 
             </>
@@ -42,27 +47,9 @@ export default function Post({ posts, currentArticle, setCurrentArticle}) {
     )
         } else {
             const article = posts.find(p => p._id == currentArticle)
-
             return (
-            <>
-                <h1> Article</h1>
-                <div className="blogCard">
-                <div>
-                    <img className="img" src={article.img} /> 
-                </div>
-                <div>
-                    <h3>Name: {article.author}</h3>
-                    <h3>Title: {article.title}</h3>
-                    <h3>Content: {article.content}</h3>
-                    <h3>{article._id}</h3>
-                </div>
-               
-                
-            </div>
-
-
-
-
+            <>      
+               <PostDetail article={article} />
             </>
             )
         }

@@ -33,6 +33,7 @@ export default function App() {
     }
   }
 
+
   const handleCreate = (createdPost) => {
     axios.post('http://localhost:3000/api/posts', createdPost)
       .then((response) => {
@@ -52,15 +53,16 @@ export default function App() {
   //       setPost(newPost)
   //     })
   // }
-  // const handleDelete = (deletedPerson) => {
-  //   axios.delete('http://localhost:3000/people/' + deletedPerson._id)
-  //     .then((response) => {
-  //       let newPeople = people.filter((person) => {
-  //         return person._id !== deletedPerson._id
-  //       })
-  //       setPeople(newPeople)
-  //     })
-  // }
+
+  const handleDelete = (deletedPost) => {
+    axios.delete('http://localhost:3000/api/posts/' + deletedPost)
+      .then((response) => {
+        let newPosts = posts.filter((post) => {
+          return post._id !== deletedPost
+        })
+        setPosts(newPosts)
+      })
+  }
 
 
   useEffect(() => {
@@ -96,7 +98,12 @@ export default function App() {
                 <Route 
                     path="/" 
                     element={
-                      <Post posts={posts} currentArticle={currentArticle} setCurrentArticle={setCurrentArticle} />
+                      <Post 
+                      posts={posts} 
+                      currentArticle={currentArticle} 
+                      setCurrentArticle={setCurrentArticle} 
+                      handleDelete={handleDelete}
+                      />
                     }>
 
                 </Route>
