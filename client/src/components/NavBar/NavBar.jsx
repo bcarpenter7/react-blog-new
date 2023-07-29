@@ -1,8 +1,9 @@
 import './NavBar.css'
 
-export default function NavBar({ setPage }){
+export default function NavBar({ setPage, setCurrentArticle }){
 
    function handleChange(e){
+        setCurrentArticle(null)
         setPage(e.target.name)
     }
 
@@ -14,7 +15,7 @@ export default function NavBar({ setPage }){
             <div className="buttonDiv">
                 <button name="index" onClick={handleChange}>See All Articles</button>
                 &nbsp; | &nbsp;
-                <a onClick={handleChange}>Home</a>
+                <button name="postform" onClick={handleChange}>Add Article</button>
             </div>
         </div>
     )
