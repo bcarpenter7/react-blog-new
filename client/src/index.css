@@ -13,9 +13,13 @@ code {
 }
 
 
-  .homeDiv {
+.homeDiv {
     width: 80vmin;
     margin: 0 auto;
-    background-color: gray;
+    /* background-color: gray; */
+}
+
+.homeDiv > h1 {
+  text-align: center;
 }
 
