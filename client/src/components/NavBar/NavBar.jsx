@@ -1,14 +1,21 @@
+import './NavBar.css'
 
+export default function NavBar({ setPage }){
 
-export default function NavBar({}){
+   function handleChange(e){
+        setPage(e.target.name)
+    }
+
     return (
-        <nav>
-            {/* <Link to="/postForm">PostForm</Link> */}
-            &nbsp; | &nbsp;
-            {/* <Link to="/orders/new">New Order</Link> */}
-            {/* <h2>Welcome {user.name}</h2> */}
-            &nbsp; | &nbsp;
-            {/* <Link to="" onClick={handleLogOut}>Log Out</Link> */}
-        </nav>
+        <div className="navDiv">
+            <div className="homeBtnDiv">
+                <button name="null" onClick={handleChange}>Home</button>
+            </div>
+            <div className="buttonDiv">
+                <button name="index" onClick={handleChange}>See All Articles</button>
+                &nbsp; | &nbsp;
+                <a onClick={handleChange}>Home</a>
+            </div>
+        </div>
     )
 }

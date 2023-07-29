@@ -13,7 +13,7 @@ import HomePage from '../HomePage/HomePage'
 
 export default function App() {
   const [posts, setPosts] = useState([])
-  
+
   const [page, setPage] = useState(null)
 
   // const getPosts = () => {
@@ -65,10 +65,11 @@ export default function App() {
 
 
  
-      if(page === null){
+      if(page === null || page === "null"){
         return (
           <>
-          <h1>Home Page</h1>
+          <NavBar setPage={setPage}/>
+         
               <Routes>
                 <Route 
                     path="/" 
@@ -85,6 +86,7 @@ export default function App() {
       if(page === "index"){
         return (
             <>
+              <NavBar setPage={setPage}/>
               <h1>All Posts</h1>
               <Routes>
                 <Route 
