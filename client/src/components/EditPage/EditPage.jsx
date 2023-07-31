@@ -8,6 +8,7 @@ export default function EditPost({ article, handleEdit, setPage, setEditMode}){
         title: article.title,
         content: article.content,
         img: article.img,
+        likes: article.likes,
         _id: article._id
     })
    

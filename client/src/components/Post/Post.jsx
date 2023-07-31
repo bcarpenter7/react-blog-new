@@ -11,10 +11,6 @@ export default function Post({ posts, currentArticle, setCurrentArticle, handleD
         setCurrentArticle(e.target.name)
     }
 
-   
-
-   
-   
 
     if(currentArticle === null){
     return (
@@ -29,7 +25,11 @@ export default function Post({ posts, currentArticle, setCurrentArticle, handleD
                     <img className="img" src={p.img} /> 
                 </div>
                 <div>
-                    <h4>{p.author}  <span className="date">{p.createdAt.slice(0, 10)}</span></h4>
+                    <h4>{p.author}  <span className="date">{
+                    p.createdAt ? p.createdAt.slice(0, 10) : p.updatedAt.slice(0, 10)
+                    
+                    
+                    }</span></h4>
                     <h1>{p.title}</h1>
                     <h3 className="previewText">{p.content.slice(0, p.content.indexOf('.') + 1)}</h3>
                     <button name={p._id} onClick={handleChange}>Click to Read More</button>
