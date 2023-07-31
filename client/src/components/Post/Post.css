@@ -14,3 +14,11 @@
     gap: 3vmin;
 
 }
+
+.date {
+    font-weight:lighter;
+}
+
+.previewText {
+    font-weight: 300;
+}
