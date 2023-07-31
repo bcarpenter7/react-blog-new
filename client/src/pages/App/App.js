@@ -7,11 +7,17 @@ import PostForm from '../../components/PostForm'
 import { Routes, Route } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
 import HomePage from '../HomePage/HomePage'
-
+import Login from '../../components/Login'
+import Logout from '../../components/Logout'
 
 
 
 export default function App() {
+  const [stateAuth, setStateAuth] = useState()
+  const response = (res) => {
+    setStateAuth(res)
+  }
+
   const [posts, setPosts] = useState([])
 
   const [page, setPage] = useState(null)
@@ -22,12 +28,12 @@ export default function App() {
   //     .catch((error) => console.log(error))
   // }
 
-  async function getPosts(){
+  async function getPosts() {
     try {
       const res = await axios.get('http://localhost:3000/api/posts')
       setPosts(res.data)
       console.log(res.data)
-    } catch (err){
+    } catch (err) {
       console.error(err)
     }
   }
@@ -60,55 +66,66 @@ export default function App() {
 
 
   useEffect(() => {
+
     getPosts()
+
   }, [])
 
 
- 
-      if(page === null || page === "null"){
-        return (
-          <>
-          <NavBar setPage={setPage}/>
-         
-              <Routes>
-                <Route 
-                    path="/" 
-                    element={
-                      <HomePage setPage={setPage}/>
-                    }>
 
-                </Route>
-              </Routes>
-          </>
-        )
-      }
+  if (page === null || page === "null") {
+    return (
+      <>
+        <NavBar setPage={setPage} />
+        <div>
+          {!stateAuth ?
+            <Login response={response} />
+            :
+            <div>
+              <img src={stateAuth.data.picture} />
+              <h5>{stateAuth.data.name}</h5>
+              <p>{stateAuth.data.email}</p>
+              <Logout response={response} />
+            </div>
+          }
+        </div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage setPage={setPage} />
+            }>
 
-      if(page === "index"){
-        return (
-            <>
-              <NavBar setPage={setPage}/>
-              <h1>All Posts</h1>
-              <Routes>
-                <Route 
-                    path="/" 
-                    element={
-                      <Post posts={posts}/>
-                    }>
-
-                </Route>
-              </Routes>
-            </>
-
-        )
-      }
-    
-      
-
-         
-         
+          </Route>
 
 
-      
-      
+        </Routes>
+      </>
+    )
+  }
+
+  if (page === "index") {
+    return (
+      <>
+        <NavBar setPage={setPage} />
+        <h1>All Posts</h1>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Post posts={posts} />
+            }>
+
+
+          </Route>
+
+        </Routes>
+      </>
+
+    )
+  }
+
+
+
 
 }
