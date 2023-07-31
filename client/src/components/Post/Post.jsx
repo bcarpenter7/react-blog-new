@@ -7,16 +7,9 @@ import PostDetail from '../PostDetail/PostDetail'
 export default function Post({ posts, currentArticle, setCurrentArticle, handleDelete, handleEdit, setPage}) {
     // const [currentArticle, setCurrentArticle] = useState("64c3e10928aa2fe7e8476947")
     function handleChange(e){
+        console.log(e.target.name)
         setCurrentArticle(e.target.name)
     }
-
-    function deletePost(e){
-        if (window.confirm("Are you sure you want to delete this post?")) {
-            handleDelete(e.target.name);
-          }
-    }
-
-   
 
 
     if(currentArticle === null){
@@ -32,12 +25,15 @@ export default function Post({ posts, currentArticle, setCurrentArticle, handleD
                     <img className="img" src={p.img} /> 
                 </div>
                 <div>
-                    <h3>Name: {p.author}</h3>
-                    <h3>Title: {p.title}</h3>
-                    <h3>Content: {p.content}</h3>
-                    <h3>{p._id}</h3>
+                    <h4>{p.author}  <span className="date">{
+               
+                    p.updatedAt.slice(0, 10) ? p.createdAt.slice(0, 10) : p.updatedAt.slice(0, 10)
+                    
+                    }</span></h4>
+                    <h1>{p.title}</h1>
+                    <h3 className="previewText">{p.content.slice(0, p.content.indexOf('.') + 1)}</h3>
                     <button name={p._id} onClick={handleChange}>Click to Read More</button>
-                    <button name={p._id} onClick={deletePost}>Click to delete</button>
+                 
                    
                 </div>
                
@@ -52,7 +48,7 @@ export default function Post({ posts, currentArticle, setCurrentArticle, handleD
             const article = posts.find(p => p._id == currentArticle)
             return (
             <>      
-               <PostDetail article={article} handleEdit={handleEdit} setPage={setPage}/>
+               <PostDetail article={article} handleEdit={handleEdit} setPage={setPage} handleDelete={handleDelete} setCurrentArticle={setCurrentArticle} />
             </>
             )
         }

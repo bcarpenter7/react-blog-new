@@ -1,0 +1,33 @@
+
+.container {
+    width: 80vmin;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 6vmin;
+}
+
+.authorInfo {
+    display: flex;
+    gap: 3vmin;
+    align-items: center;
+}
+
+.authorName {
+    font-size: 4vmin;
+}
+
+.authorCreated{
+    color: gray;
+}
+
+.imgDetail {
+    width: 100%;
+}
+
+.articleText {
+    font-weight: thinner;
+    font-size: 2.2vmin;
+    white-space: pre-wrap
+}

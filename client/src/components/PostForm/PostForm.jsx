@@ -8,6 +8,7 @@ export default function PostForm({ handleCreate, setPage }){
         author: '',
         title: '',
         content: '',
+        likes: 0,
         img: ''
     })
 
@@ -23,11 +24,12 @@ export default function PostForm({ handleCreate, setPage }){
 
     return(
         <>
-            <div className="homeDiv">
-            <h1>Add Article</h1>
+            <div className="addDiv">
+            <h1 className="articleHeader">Add Article</h1>
             <form className="form" onSubmit={handleSubmit}>
                 <div>
                     <label>Enter Author</label>
+                    < br/>
                     <input 
                     value={tempPost.author} 
                     name="author"
@@ -37,6 +39,7 @@ export default function PostForm({ handleCreate, setPage }){
                 
                 <div>
                     <label>Enter Title</label>
+                    < br/>
                     <input 
                     value={tempPost.title} 
                     name="title"
@@ -46,16 +49,21 @@ export default function PostForm({ handleCreate, setPage }){
                
                 <div>
                     <label>Enter Content</label>
-                    <input 
+                    <textarea 
+                    className="textArea"
                     value={tempPost.content} 
                     name="content"
                     onChange={e => handleChange(e)}
+                   
+                    // cols={40}
                     />
 
                 </div>
                
                 <div>
                     <label>Enter Img Url</label>
+                    < br/>
+                    < br/>
                     <input 
                     value={tempPost.img} 
                     name="img"

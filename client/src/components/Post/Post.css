@@ -1,7 +1,7 @@
 
 
 .img {
-    width: 10vmin;
+    width: 15vmin;
 }
 
 .blogCard {
@@ -12,5 +12,14 @@
     padding: 3vmin;
     display: flex;
     gap: 3vmin;
+    align-items: center;
 
+}
+
+.date {
+    font-weight:lighter;
+}
+
+.previewText {
+    font-weight: 300;
 }
