@@ -26,8 +26,8 @@ export default function Post({ posts, currentArticle, setCurrentArticle, handleD
                 </div>
                 <div>
                     <h4>{p.author}  <span className="date">{
-                    p.createdAt ? p.createdAt.slice(0, 10) : p.updatedAt.slice(0, 10)
-                    
+               
+                    p.updatedAt.slice(0, 10) ? p.createdAt.slice(0, 10) : p.updatedAt.slice(0, 10)
                     
                     }</span></h4>
                     <h1>{p.title}</h1>

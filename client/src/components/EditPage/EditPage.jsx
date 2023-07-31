@@ -9,7 +9,9 @@ export default function EditPost({ article, handleEdit, setPage, setEditMode}){
         content: article.content,
         img: article.img,
         likes: article.likes,
-        _id: article._id
+        _id: article._id,
+        createdAt : article.createdAt,
+        updatedAt : article.updatedAt
     })
    
     function handleChange(e){
@@ -27,8 +29,8 @@ export default function EditPost({ article, handleEdit, setPage, setEditMode}){
 
     return(
         <>
-            <div className="homeDiv">
-            <h1>Add Article</h1>
+            <div className="addDiv">
+            <h1 className="articleHeader">Add Article</h1>
             <form className="form" onSubmit={handleSubmit}>
               
                 <div>
@@ -51,8 +53,9 @@ export default function EditPost({ article, handleEdit, setPage, setEditMode}){
                
                 <div>
                     <label>Enter Content</label>
-                    <input 
+                    <textarea
                     value={tempPost.content} 
+                    className="textArea"
                     name="content"
                     onChange={e => handleChange(e)}
                     />
