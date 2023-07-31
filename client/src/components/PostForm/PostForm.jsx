@@ -3,7 +3,7 @@ import '../../index.css'
 import './PostForm.css'
 
 
-export default function PostForm({ handleCreate }){
+export default function PostForm({ handleCreate, setPage }){
     const [tempPost, setTempPost] = useState({
         author: '',
         title: '',
@@ -17,6 +17,7 @@ export default function PostForm({ handleCreate }){
 
     function handleSubmit(e){
         e.preventDefault()
+        setPage('index')
         handleCreate(tempPost)
     }
 
