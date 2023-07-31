@@ -1,10 +1,11 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color:hsla(0,0%,0%,1);
+  background-image:
+  radial-gradient(at 9% 12%, hsla(233,25%,39%,0.74) 0px, transparent 50%),
+  radial-gradient(at 14% 95%, hsla(178,43%,26%,0.9) 0px, transparent 50%),
+  radial-gradient(at 96% 7%, hsla(210,32%,32%,0.85) 0px, transparent 50%),
+  radial-gradient(at 83% 98%, hsla(202,100%,27%,0.75) 0px, transparent 50%);
+  min-height: 100vh;
 }
 
 code {
@@ -22,4 +23,4 @@ code {
 .homeDiv > h1 {
   text-align: center;
 }
-
+ 
