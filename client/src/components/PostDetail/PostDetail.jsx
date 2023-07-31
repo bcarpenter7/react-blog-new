@@ -1,6 +1,6 @@
 
 import { useState } from 'react'
-import EditPage from '../EditPage/EditPage'
+import EditPage from '../../EditPage/EditPage'
 import './PostDetail.css'
 
 
