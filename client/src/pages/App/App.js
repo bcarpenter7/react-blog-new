@@ -42,17 +42,15 @@ export default function App() {
   }
 
 
-
-
-  // const handleEdit = (editedPerson) => {
-  //   axios.put('http://localhost:3000/people/' + editedPerson._id, editedPerson)
-  //     .then((response) => {
-  //       let newPost = post.map((person) => {
-  //         return person._id !== editedPerson._id ? person : editedPerson
-  //       })
-  //       setPost(newPost)
-  //     })
-  // }
+  const handleEdit = (editedPost) => {
+    axios.put('http://localhost:3000/api/posts/' + editedPost._id, editedPost)
+      .then((response) => {
+        let newPost = posts.map((post) => {
+          return post._id !== editedPost._id ? post : editedPost
+        })
+        setPosts(newPost)
+      })
+  }
 
   const handleDelete = (deletedPost) => {
     axios.delete('http://localhost:3000/api/posts/' + deletedPost)
@@ -89,7 +87,7 @@ export default function App() {
         )
       }
 
-      if(page === "index"){
+      if(page === "index" || page === "indexUpdate"){
         return (
             <>
               <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle}/>
@@ -103,6 +101,8 @@ export default function App() {
                       currentArticle={currentArticle} 
                       setCurrentArticle={setCurrentArticle} 
                       handleDelete={handleDelete}
+                      handleEdit={handleEdit}
+                      setPage={setPage}
                       />
                     }>
 

@@ -7,7 +7,8 @@ module.exports = {
     index,
     create,
     show,
-    deletePost
+    deletePost,
+    edit
 }
 
 
@@ -32,7 +33,7 @@ async function show(req, res){
 
 async function deletePost(req, res){
     try {
-        const deletePost = await Post.findById(req.params.id)
+        const deletePost = await Post.findByIdAndDelete(req.params.id)
         res.status(200).json(deletePost)
     } catch(err){
         console.log(err)
@@ -46,4 +47,16 @@ async function create(req, res){
     } catch(err){
         console.log(err)
     }
+}
+
+async function edit(req, res){
+    try {
+        const post = await Post.findById(req.params.id)
+        res.status(200).json(post)
+    } catch(err){
+        console.log(err)
+    }
+
+
+
 }
