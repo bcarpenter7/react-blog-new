@@ -7,6 +7,7 @@ import PostDetail from '../PostDetail/PostDetail'
 export default function Post({ posts, currentArticle, setCurrentArticle, handleDelete, handleEdit, setPage}) {
     // const [currentArticle, setCurrentArticle] = useState("64c3e10928aa2fe7e8476947")
     function handleChange(e){
+        console.log(e.target.name)
         setCurrentArticle(e.target.name)
     }
 
@@ -27,10 +28,10 @@ export default function Post({ posts, currentArticle, setCurrentArticle, handleD
                 <div>
                     <img className="img" src={p.img} /> 
                 </div>
-                <div onClick={handleChange}>
-                    <h4 >{p.author}  <span className="date">{p.createdAt.slice(0, 10)}</span></h4>
-                    <h1>Title: {p.title}</h1>
-                    <h3 className="previewText">Preview: {p.content.slice(0, p.content.indexOf('.') + 1)}</h3>
+                <div>
+                    <h4>{p.author}  <span className="date">{p.createdAt.slice(0, 10)}</span></h4>
+                    <h1>{p.title}</h1>
+                    <h3 className="previewText">{p.content.slice(0, p.content.indexOf('.') + 1)}</h3>
                     <button name={p._id} onClick={handleChange}>Click to Read More</button>
                  
                    

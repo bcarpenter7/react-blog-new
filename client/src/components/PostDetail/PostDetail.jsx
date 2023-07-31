@@ -13,7 +13,6 @@ export default function PostDetail({article, handleEdit, setPage, deletePost, ha
     function deletePost(e){
         if (window.confirm("Are you sure you want to delete this post?")) {
             handleDelete(e.target.name);
-            // Later setPage to index and 
             setCurrentArticle(null)
             setEditMode(false)
             setPage("index")
@@ -30,18 +29,21 @@ export default function PostDetail({article, handleEdit, setPage, deletePost, ha
             
                 
                 <div className="container">
-                <h1> {article.title}</h1>
-                <div>
-                    <img className="img" src={article.img} /> 
-                </div>
-                <div>
-                    <h3>Name: {article.author}</h3>
-                    <h3>Title: {article.title}</h3>
-                    <h3>Content: {article.content}</h3>
-                    <h3>{article._id}</h3>
-                    <button name={article._id} onClick={editPost}> Click to edit</button>
-                    <button name={article._id} onClick={deletePost}>Click to delete</button>
-                </div>
+                    <h1 className="title"> {article.title} </h1>
+                    <h3 className="authorName"> {article.author} </h3>
+                    <h3 className="authorCreated"> Published {article.createdAt.slice(0, 10)}</h3>
+                    <div>
+                        <img className="imgDetail" src={article.img} /> 
+                    </div>
+                    <div>
+                        <br />
+                        <br />
+                        <p className="articleText">{article.content}</p>
+                        <button name={article._id} onClick={editPost}> Click to edit</button>
+                        <button name={article._id} onClick={deletePost}>Click to delete</button>
+                        <br />
+                        <br />
+                    </div>
                 </div>
     
             </>
