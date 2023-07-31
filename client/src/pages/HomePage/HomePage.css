@@ -1,6 +1,53 @@
 
-/* .homeDiv {
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+
+
+.homeDiv {
+
     width: 80vmin;
     margin: 0 auto;
-    background-color: gray;
-} */
+    background-color: rgba(175, 219, 249, 0.316);
+    border-radius: 10px;
+}
+.title{
+    font-weight: 600;
+    font-size: 40px;
+    margin-left: 35%;
+    font-family: 'Roboto Slab', serif;
+}
+.second{
+    font-size: 25px;
+    margin-left: 28%;
+    font-family: 'Roboto Slab', serif;
+}
+.btt{
+    display: flex;
+    margin-left: 18%;
+    padding-bottom: 5px;
+    font-family: 'Roboto Slab', serif;
+}
+button {
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #2ba8fb;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+  
+button:hover {
+    background-color: #6fc5ff;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+}
+  
+button:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+}
