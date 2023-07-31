@@ -122,7 +122,7 @@ export default function App() {
                 <Route 
                     path="/" 
                     element={
-                      <PostForm handleCreate={handleCreate}/>
+                      <PostForm handleCreate={handleCreate} setPage={setPage}/>
                     }>
 
                 </Route>

@@ -51,12 +51,12 @@ async function create(req, res){
 
 async function edit(req, res){
     try {
-        const post = await Post.findById(req.params.id)
-        res.status(200).json(post)
+        const editAfterPost = req.body
+        await Post.findByIdAndUpdate(req.params.id, editAfterPost)
+        res.status(200).json(editAfterPost)
     } catch(err){
         console.log(err)
     }
-
 
 
 }
