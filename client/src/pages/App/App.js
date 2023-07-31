@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import Post from '../../components/Post'
+import Post from '../../components/Post/Post'
 // import Add from './components/Add'
 // import Edit from './components/Edit'
-import PostForm from '../../components/PostForm'
+import PostForm from '../../components/PostForm/PostForm'
 import { Routes, Route } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
 import HomePage from '../HomePage/HomePage'
+import PostDetail from '../../components/PostDetail/PostDetail'
 
 
 
 
 export default function App() {
   const [posts, setPosts] = useState([])
-  
+  const [currentArticle, setCurrentArticle] = useState(null)
   const [page, setPage] = useState(null)
 
   // const getPosts = () => {
@@ -32,6 +33,7 @@ export default function App() {
     }
   }
 
+
   const handleCreate = (createdPost) => {
     axios.post('http://localhost:3000/api/posts', createdPost)
       .then((response) => {
@@ -39,24 +41,26 @@ export default function App() {
       })
   }
 
-  // const handleEdit = (editedPerson) => {
-  //   axios.put('http://localhost:3000/people/' + editedPerson._id, editedPerson)
-  //     .then((response) => {
-  //       let newPost = post.map((person) => {
-  //         return person._id !== editedPerson._id ? person : editedPerson
-  //       })
-  //       setPost(newPost)
-  //     })
-  // }
-  // const handleDelete = (deletedPerson) => {
-  //   axios.delete('http://localhost:3000/people/' + deletedPerson._id)
-  //     .then((response) => {
-  //       let newPeople = people.filter((person) => {
-  //         return person._id !== deletedPerson._id
-  //       })
-  //       setPeople(newPeople)
-  //     })
-  // }
+
+  const handleEdit = (editedPost) => {
+    axios.put('http://localhost:3000/api/posts/' + editedPost._id, editedPost)
+      .then((response) => {
+        let newPost = posts.map((post) => {
+          return post._id !== editedPost._id ? post : editedPost
+        })
+        setPosts(newPost)
+      })
+  }
+
+  const handleDelete = (deletedPost) => {
+    axios.delete('http://localhost:3000/api/posts/' + deletedPost)
+      .then((response) => {
+        let newPosts = posts.filter((post) => {
+          return post._id !== deletedPost
+        })
+        setPosts(newPosts)
+      })
+  }
 
 
   useEffect(() => {
@@ -65,10 +69,11 @@ export default function App() {
 
 
  
-      if(page === null){
+      if(page === null || page === "null"){
         return (
           <>
-          <h1>Home Page</h1>
+          <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle}/>
+         
               <Routes>
                 <Route 
                     path="/" 
@@ -82,15 +87,23 @@ export default function App() {
         )
       }
 
-      if(page === "index"){
+      if(page === "index" || page === "indexUpdate"){
         return (
             <>
-              <h1>All Posts</h1>
+              <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle}/>
+              {/* <h1>All Posts</h1> */}
               <Routes>
                 <Route 
                     path="/" 
                     element={
-                      <Post posts={posts}/>
+                      <Post 
+                      posts={posts} 
+                      currentArticle={currentArticle} 
+                      setCurrentArticle={setCurrentArticle} 
+                      handleDelete={handleDelete}
+                      handleEdit={handleEdit}
+                      setPage={setPage}
+                      />
                     }>
 
                 </Route>
@@ -99,6 +112,44 @@ export default function App() {
 
         )
       }
+
+      if(page === "postform"){
+        return (
+            <>
+              <NavBar setPage={setPage} setCurrentArticle={setCurrentArticle}/>
+              {/* <h1>All Posts</h1> */}
+              <Routes>
+                <Route 
+                    path="/" 
+                    element={
+                      <PostForm handleCreate={handleCreate} setPage={setPage}/>
+                    }>
+
+                </Route>
+              </Routes>
+            </>
+
+        )
+      }
+
+      // if(page === "detail"){
+      //   return (
+      //       <>
+      //         <NavBar setPage={setPage}/>
+      //         {/* <h1>All Posts</h1> */}
+      //         <Routes>
+      //           <Route 
+      //               path="/" 
+      //               element={
+      //                 <PostDetail id={id}/>
+      //               }>
+
+      //           </Route>
+      //         </Routes>
+      //       </>
+
+      //   )
+      // }
     
       
 

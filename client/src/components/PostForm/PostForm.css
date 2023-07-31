@@ -1,0 +1,16 @@
+
+
+
+.form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    text-align: start;
+    gap: 2vmin;
+    width: 30vmin;
+    background-color: rgb(176, 176, 219);
+    border-radius: 5px;
+    padding: 5vmin;
+}

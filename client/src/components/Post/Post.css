@@ -1,0 +1,16 @@
+
+
+.img {
+    width: 10vmin;
+}
+
+.blogCard {
+    width: 90%;
+    border-radius: 5px;
+    margin: 1vmin auto;
+    border: 2px solid black;
+    padding: 3vmin;
+    display: flex;
+    gap: 3vmin;
+
+}

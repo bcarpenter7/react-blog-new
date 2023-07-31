@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.homeDiv {
+    width: 80vmin;
+    margin: 0 auto;
+    /* background-color: gray; */
+}
+
+.homeDiv > h1 {
+  text-align: center;
+}
+
