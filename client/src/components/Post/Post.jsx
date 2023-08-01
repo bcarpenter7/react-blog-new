@@ -2,7 +2,7 @@
 import './Post.css'
 import '../../index.css'
 import { useState } from 'react'
-import PostDetail from '../PostDetail/PostDetail'
+import PostDetail from '../PostDetail/PostDetail' 
 
 export default function Post({ posts, currentArticle, setCurrentArticle, handleDelete, handleEdit, setPage}) {
     // const [currentArticle, setCurrentArticle] = useState("64c3e10928aa2fe7e8476947")
@@ -16,7 +16,7 @@ export default function Post({ posts, currentArticle, setCurrentArticle, handleD
     return (
         <>
         <div className="homeDiv">
-        <h1>All Posts</h1>
+        <h1 className='title1'>All Posts</h1>
         { posts.map((p, idx) => (
 
             <>

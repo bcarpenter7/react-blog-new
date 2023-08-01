@@ -11,7 +11,6 @@ import PostDetail from '../../components/PostDetail/PostDetail'
 
 
 
-
 export default function App() {
   const [posts, setPosts] = useState([])
   const [currentArticle, setCurrentArticle] = useState(null)

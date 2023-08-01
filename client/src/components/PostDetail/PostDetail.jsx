@@ -36,7 +36,9 @@ export default function PostDetail({article, handleEdit, setPage, deletePost, ha
             
                 
                 <div className="container">
-                    <h1 className="title"> {article.title} </h1>
+                    <div>
+                    <h1 className="titleDetail"> {article.title} </h1>
+                    </div>
                     <h3 className="authorName"> {article.author} </h3>
                     <h3 className="authorCreated"> Published { article.updatedAt.slice(0, 10) ? article.createdAt.slice(0, 10) : article.updatedAt.slice(0, 10)}</h3>
                     
