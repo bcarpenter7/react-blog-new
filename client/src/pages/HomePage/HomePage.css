@@ -4,12 +4,12 @@
 
 
 .homeDiv {
-
     width: 80vmin;
     margin: 0 auto;
     background-color: rgba(175, 219, 249, 0.316);
     border-radius: 10px;
 }
+
 .title{
     font-weight: 600;
     font-size: 40px;
