@@ -54,8 +54,6 @@ export default function PostForm({ handleCreate, setPage }){
                     value={tempPost.content} 
                     name="content"
                     onChange={e => handleChange(e)}
-                   
-                    // cols={40}
                     />
 
                 </div>
