@@ -3,8 +3,10 @@
 
 This is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) blog application that allows an admin to perform CRUD operations on blog posts. It uses MongoDB as the database to store blog information.
 
-##Hosted App
+## Hosted App
+
 You can access the hosted app by visiting the following link: https://64c9a7ae21f5463e2fb89af2--prismatic-cobbler-1b5b22.netlify.app/
+
 ## Features
 
 - User-friendly interface to manage blog posts.
