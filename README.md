@@ -5,7 +5,9 @@ This is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) blog applicat
 
 ## Hosted App
 
-You can access the hosted app by visiting the following link: https://64c9a7ae21f5463e2fb89af2--prismatic-cobbler-1b5b22.netlify.app/
+You can access the hosted app by visiting the following link: (https://64ca4aa211530b1691cd0642--resonant-rolypoly-eabc9a.netlify.app/)
+
+<img width="395" alt="Screenshot 2023-08-02 at 8 26 39 AM" src="https://github.com/bcarpenter7/final-final-final-client/assets/126187218/1da29513-8e2e-4d86-bf30-ef05f1e486ca">
 
 ## Features
 
